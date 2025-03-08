@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorry Animation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+    #message {
+      font-size: 24px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sorry {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="message"></div>
+
+  <script>
+    const messageDiv = document.getElementById('message');
+
+    const emojis = ['💖', '🙇‍♂️', '😢', '🌸', '✨'];
+
+    let count = 0;
+
+    function displaySorry() {
+      if (count < 100) {
+        const sorryElement = document.createElement('div');
+        sorryElement.classList.add('sorry');
+        sorryElement.textContent = `Sorry ${emojis[count % emojis.length]}`;
+
+        messageDiv.appendChild(sorryElement);
+
+        // Animating the opacity for smooth fade-in effect
+        setTimeout(() => {
+          sorryElement.style.opacity = 1;
+        }, count * 300); // Adding a delay for animation
+
+        count++;
+        setTimeout(displaySorry, 300); // Calling the function again after 300ms
+      }
+    }
+
+    displaySorry(); // Start the animation
+
+  </script>
+
+</body>
+</html>
