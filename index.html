@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sorry Animation</title>
+  <title>Jhumka Monika Special</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,7 +11,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-color: #f0f0f0;
+      background-color: #fff0f5;
       margin: 0;
     }
     #message {
@@ -21,16 +21,18 @@
       flex-direction: column;
       gap: 10px;
     }
-    .sorry {
+    .jhumka {
       opacity: 0;
       animation: fadeIn 1s forwards;
     }
     @keyframes fadeIn {
       0% {
         opacity: 0;
+        transform: translateY(-10px);
       }
       100% {
         opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
@@ -42,29 +44,28 @@
   <script>
     const messageDiv = document.getElementById('message');
 
-    const emojis = ['💖', '🙇‍♂️', '😢', '🌸', '✨'];
+    const emojis = ['💃', '👂', '✨', '🌸', '💖', '🔥'];
 
     let count = 0;
 
-    function displaySorry() {
+    function displayJhumka() {
       if (count < 100) {
-        const sorryElement = document.createElement('div');
-        sorryElement.classList.add('sorry');
-        sorryElement.textContent = `Sorry ${emojis[count % emojis.length]}`;
+        const jhumkaElement = document.createElement('div');
+        jhumkaElement.classList.add('jhumka');
+        jhumkaElement.textContent = `Monika ka Jhumka ${emojis[count % emojis.length]} gira Bazaar mein, dil mera gira Tere Pyaar mein! ❤️`;
 
-        messageDiv.appendChild(sorryElement);
+        messageDiv.appendChild(jhumkaElement);
 
-        // Animating the opacity for smooth fade-in effect
         setTimeout(() => {
-          sorryElement.style.opacity = 1;
-        }, count * 300); // Adding a delay for animation
+          jhumkaElement.style.opacity = 1;
+        }, count * 300);
 
         count++;
-        setTimeout(displaySorry, 300); // Calling the function again after 300ms
+        setTimeout(displayJhumka, 300);
       }
     }
 
-    displaySorry(); // Start the animation
+    displayJhumka();
 
   </script>
 
